@@ -32,16 +32,9 @@
                     <td><?= h($article->created) ?></td>
                     <td><?= h($article->modified) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $article->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $article->id]) ?>
-                        <?= $this->Form->postLink(
-                            __('Delete'),
-                            ['action' => 'delete', $article->id],
-                            [
-                                'method' => 'delete',
-                                'confirm' => __('Are you sure you want to delete # {0}?', $article->id),
-                            ]
-                        ) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $article->slug]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $article->slug]) ?>
+                        <?= $this->Html->link(__('Delete'), ['action' => 'delete', $article->slug], ['confirm' => __('Are you sure you want to delete: {0}?', $article->title)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
