@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 use Migrations\BaseSeed;
-
+use Cake\Auth\DefaultPasswordHasher;
 /**
  * Users seed.
  */
@@ -20,10 +20,13 @@ class UsersSeed extends BaseSeed
      */
     public function run(): void
     {
+        $hasher = new DefaultPasswordHasher();
+        $password = $hasher->hash('a');
+
         $data = [
             [
                 'email'    => 'teste@gmail.com',
-                'password' => 'a',
+                'password' => $password,
                 'created'  => date('Y-m-d H:i:s'),
                 'modified' => date('Y-m-d H:i:s'),
             ],
