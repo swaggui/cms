@@ -1,0 +1,239 @@
+:root {
+    --dark-bg: #1e1e2e;
+    --light-bg: #27293d;
+    --text-primary: #cdd6f4;
+    --text-secondary: #a6adc8;
+    --blue-accent: #89b4fa;
+    --blue-hover: #a3b8ee;
+    --border-color: #45475a;
+    --success-color: #a6e3a1;
+    --error-color: #f38ba8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--blue-accent);
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--blue-accent);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--blue-hover);
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.top-nav {
+    background-color: var(--light-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-nav-title a {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.top-nav-title span {
+    color: var(--text-primary);
+}
+
+.top-nav-links span {
+    margin-right: 1rem;
+    color: var(--text-secondary);
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.form legend {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--blue-accent);
+    margin-bottom: 1.5rem;
+}
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form textarea,
+.form select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    background-color: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-primary);
+}
+.form input:focus, .form textarea:focus, .form select:focus {
+    outline: none;
+    border-color: var(--blue-accent);
+}
+.form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.form button, .button {
+    background-color: var(--blue-accent);
+    color: var(--dark-bg);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease-in-out;
+}
+.form button:hover, .button:hover {
+    background-color: var(--blue-hover);
+}
+.form-error-message {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+table th, table td {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+table th {
+    color: var(--blue-accent);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+table tr:nth-child(even) {
+    background-color: var(--light-bg);
+}
+
+.message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border: 1px solid;
+}
+.message.success {
+    background-color: rgba(166, 227, 161, 0.2);
+    border-color: var(--success-color);
+    color: var(--success-color);
+}
+.message.error {
+    background-color: rgba(243, 139, 168, 0.2);
+    border-color: var(--error-color);
+    color: var(--error-color);
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+}
+.side-nav .side-nav-item {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-left: 3px solid transparent;
+}
+.side-nav .side-nav-item:hover {
+    border-left-color: var(--blue-accent);
+    background-color: var(--light-bg);
+}
+
+
+footer {
+    background-color: var(--light-bg);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .table-responsive table,
+    .table-responsive thead,
+    .table-responsive tbody,
+    .table-responsive th,
+    .table-responsive td,
+    .table-responsive tr {
+        display: block;
+    }
+
+    .table-responsive thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .table-responsive tr {
+        border: 1px solid var(--border-color);
+        margin-bottom: 1rem;
+        border-radius: 4px;
+    }
+
+    .table-responsive td {
+        border: none;
+        border-bottom: 1px solid var(--light-bg);
+        position: relative;
+        padding-left: 40%;
+        min-height: 2.5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .table-responsive td:before {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        width: 35%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label);
+        font-weight: bold;
+        color: var(--blue-accent);
+    }
+}
+
