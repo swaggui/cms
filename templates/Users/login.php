@@ -7,8 +7,8 @@
         <?= $this->Form->control('email', ['required' => true]) ?>
         <?= $this->Form->control('password', ['required' => true]) ?>
     </fieldset>
-    <?= $this->Form->submit(__('Login')); ?>
-    <?= $this->Form->end() ?>
-
-    <?= $this->Html->link("Add User", ['action' => 'add']) ?>
+    <div class="form-buttons">
+        <?= $this->Form->submit(__('Login'), ['class' => 'action-button']) ?>
+        <?= $this->Html->link("Registrar", ['action' => 'add'], ['class' => 'button-secondary']) ?>
+    </div>
 </div>

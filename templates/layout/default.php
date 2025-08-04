@@ -51,7 +51,7 @@ $cakeDescription = 'CMS Tutorial';
 </main>
 <footer>
     <div class="container">
-        <p>CMS construído com CakePHP. 2025.</p>
+        <p>Nenhum direito reservado℗.</p>
     </div>
 </footer>
 </body>

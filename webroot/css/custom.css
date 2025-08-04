@@ -1,11 +1,11 @@
 :root {
-    --dark-bg: #1e1e2e;
-    --light-bg: #27293d;
-    --text-primary: #cdd6f4;
-    --text-secondary: #a6adc8;
-    --blue-accent: #89b4fa;
-    --blue-hover: #a3b8ee;
-    --border-color: #45475a;
+    --dark-bg: #0066ff;
+    --light-bg: #0066ff;
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --blue-accent: #ffffff;
+    --blue-hover: #ffffff;
+    --border-color: #ffffff;
     --success-color: #a6e3a1;
     --error-color: #f38ba8;
 }
@@ -122,6 +122,10 @@ a:hover {
     margin-top: -0.5rem;
     margin-bottom: 1rem;
 }
+.form fieldset {
+    border: none;
+    padding: 0;
+}
 
 table {
     width: 100%;
@@ -236,4 +240,167 @@ footer {
         color: var(--blue-accent);
     }
 }
+.welcome-hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+}
 
+.welcome-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-hero p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.action-links {
+    text-align: center;
+}
+
+.links-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.action-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--blue-accent);
+    color: var(--dark-bg);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid var(--blue-accent);
+    text-align: center;
+}
+
+.action-button:hover {
+    background-color: transparent;
+    color: var(--blue-accent);
+    transform: translateY(-2px);
+}
+.tag-checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    background-color: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.tag-checkbox-wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.tag-checkbox-wrapper label {
+    display: inline-block;
+    background-color: var(--light-bg);
+    color: var(--text-secondary);
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.9rem;
+}
+
+.tag-checkbox-wrapper input[type="checkbox"]:checked + label {
+    background-color: var(--blue-accent);
+    color: var(--dark-bg);
+    border-color: var(--blue-accent);
+    font-weight: 700;
+}
+
+.tag-checkbox-wrapper label:hover {
+    border-color: var(--blue-hover);
+}
+.page-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.page-sidebar {
+    flex-basis: 200px;
+    flex-shrink: 0;
+}
+
+.page-sidebar .side-nav-item {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid transparent;
+}
+
+.page-sidebar .side-nav-item:hover {
+    background-color: var(--light-bg);
+    border-left-color: var(--blue-accent);
+}
+
+.page-content {
+    flex-grow: 1;
+}
+
+
+.paginator {
+    margin-top: 2rem;
+}
+.paginator .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    gap: 0.5rem;
+}
+.paginator .pagination li {
+    font-weight: 700;
+}
+.paginator .pagination li a {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    display: block;
+}
+.paginator .pagination li a:hover {
+    background-color: var(--light-bg);
+}
+.paginator .pagination .active a {
+    background-color: var(--blue-accent);
+    color: var(--dark-bg);
+    border-color: var(--blue-accent);
+}
+
+.paginator .button-pagination {
+    background-color: var(--light-bg);
+}
+
+@media (max-width: 800px) {
+    .page-container {
+        flex-direction: column;
+    }
+    .page-sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
+    }
+    .page-sidebar .side-nav-item {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+}
