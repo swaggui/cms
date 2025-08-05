@@ -116,4 +116,17 @@ class ArticlesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function feed()
+    {
+        $this->Authorization->skipAuthorization();
+
+        $query = $this->Articles->find()
+            ->where(['Articles.published' => true])
+            ->contain(['Users', 'Tags'])
+            ->order(['Articles.created' => 'DESC']);
+
+        $articles = $this->paginate($query);
+
+        $this->set(compact('articles'));
+    }
 }

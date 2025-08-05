@@ -30,7 +30,6 @@
                                     <?= $this->Form->checkbox('tags._ids[]', [
                                         'value' => $tagId,
                                         'id' => 'tag-' . $tagId,
-                                        // AQUI ESTÁ A CORREÇÃO: desativa o campo oculto automático
                                         'hiddenField' => false,
                                         'checked' => !empty($article->tags) && in_array($tagId, array_column($article->tags, 'id')),
                                     ]); ?>

@@ -33,12 +33,8 @@ return function (RouteBuilder $routes): void {
 
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
         $builder->connect('/articles/tagged/*', ['controller' => 'Articles', 'action' => 'tags']);
-
-
-
+        $builder->connect('/feed', ['controller' => 'Articles', 'action' => 'feed']);
         $builder->connect('/pages/*', 'Pages::display');
-
-
         $builder->fallbacks();
     });
 
