@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  */
 
-$cakeDescription = 'CMS Tutorial';
+$cakeDescription = 'CMS';
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,6 +35,7 @@ $cakeDescription = 'CMS Tutorial';
         <?php
         $identity = $this->request->getAttribute('identity');
         if ($identity) {
+            echo $this->Html->link('Meu Perfil', ['controller' => 'Users', 'action' => 'profile']);
             echo '<span>' . h($identity->get('email')) . '</span>';
             echo $this->Html->link('Logout', ['controller' => 'Users', 'action' => 'logout']);
         } else {

@@ -5,7 +5,7 @@
 
 $identity = $this->request->getAttribute('identity');
 
-$this->assign('title', 'Bem-vindo');
+$this->assign('title', 'CMS');
 ?>
 
 <div class="welcome-hero">

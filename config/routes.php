@@ -31,10 +31,11 @@ return function (RouteBuilder $routes): void {
 
     $routes->scope('/', function (RouteBuilder $builder): void {
 
-        $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+        $builder->connect('/', ['controller' => 'Articles', 'action' => 'feed']);
         $builder->connect('/articles/tagged/*', ['controller' => 'Articles', 'action' => 'tags']);
         $builder->connect('/feed', ['controller' => 'Articles', 'action' => 'feed']);
         $builder->connect('/pages/*', 'Pages::display');
+        $builder->connect('/profile', ['controller' => 'Users', 'action' => 'profile']);
         $builder->fallbacks();
     });
 

@@ -30,6 +30,13 @@ class UsersController extends AppController
         $this->Authentication->addUnauthenticatedActions(['login', 'add']);
 
     }
+    public function profile()
+    {
+        $user = $this->Users->get($this->request->getAttribute('identity')->getIdentifier());
+        $this->Authorization->authorize($user, 'view');
+
+        $this->set(compact('user'));
+    }
 
     public function login()
     {
@@ -105,14 +112,29 @@ class UsersController extends AppController
     {
         $user = $this->Users->get($id, contain: []);
         $this->Authorization->authorize($user);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData(), [
+                'accessibleFields' => ['password' => false]
+            ]);
+
+            $photo = $this->request->getData('photo_file');
+
+            if ($photo && $photo->getError() == UPLOAD_ERR_OK) {
+                $name = $photo->getClientFilename();
+                $targetPath = WWW_ROOT . 'img' . DS . 'user_photos' . DS . $name;
+
+
+                $photo->moveTo($targetPath);
+                $user->photo = $name;
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('O utilizador foi guardado.'));
+
+                return $this->redirect(['action' => 'profile']);
+            }
+            $this->Flash->error(__('Não foi possível guardar o utilizador. Por favor, tente novamente.'));
         }
         $this->set(compact('user'));
     }
